@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.3-alpine
+    restart: always
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=4y7sV96vA9wv46VR
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - '54321:5432'
+    volumes:
+      - /home/ssm-user/postgresql-data:/var/lib/postgresql/data
+      - ./my-postgres.conf:/etc/postgresql/postgresql.conf
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
