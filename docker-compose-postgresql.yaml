@@ -13,4 +13,4 @@ services:
     volumes:
       - /home/ssm-user/postgresql-data:/var/lib/postgresql/data
       - ./my-postgres.conf:/etc/postgresql/postgresql.conf
-      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/create_tables.sql
